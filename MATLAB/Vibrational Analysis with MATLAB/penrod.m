@@ -22,16 +22,22 @@ dTdvdt = diff(dTdv, v)*a ...
 % dgl: h(a,v,q,t) = 0
 h = dTdvdt-dTdq+dUdq;
 hs = simplify(h);
+disp(hs);
 
 %----------------------------------------------------
 
 %Taylor-Linearizing wrt.Equilibrium Position q0=0
 syms dq dv da q0       real
 q0 = 0;
-h0 = subs(hs, [a,v,q],[0, 0, q0]); % 0 theorem
-hda = diff(hs, a)
+h0 = subs(hs, [a,v,q],[0, 0, q0]); % 0 term
+hda = diff(hs, a);
 hda = subs(hda, [a,v,q],[0, 0, q0]); % 1st order
-hdv = diff(hs, v)
+hdv = diff(hs, v);
 hdv = subs(hdv, [a,v,q],[0, 0, q0]);
-hdq = diff(hs, q)
+hdq = diff(hs, q);
 hdq = subs(hdq, [a,v,q],[0, 0, q0]);
+
+
+hl = h0 + da*hda + dv*hdv + dq*hdq; % linearised equation 
+hlf = simplify(hl); % linearised final equation after simplifying
+disp(hlf);

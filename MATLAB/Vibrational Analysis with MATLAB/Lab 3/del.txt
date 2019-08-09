@@ -1,0 +1,25 @@
+for i = 1:length(Omg)
+   H = Klin - (Omg(i)^2)*Mlin;
+   yh = H\hs;
+   yf(:,i) = yh;
+end
+
+figure
+
+% x vs Omg
+
+subplot(2,1,1);
+plot(Omg,abs(yf(1,:)),'-k');
+title('Amplitude vs Frequency (Abs Value)');
+xlabel('Frequency');
+ylabel('Amplitude (x)');
+% axis([Omi,Omf,0,1]); grid on;
+
+% x vs Omg
+
+subplot(2,1,2);
+plot(Omg,abs(yf(2,:)),'-m');
+title('Amplitude vs Theta (Abs Value)');
+xlabel('Frequency');
+ylabel('Amplitude (Theta)');
+% axis([Omi,Omf,0,1]); grid on;

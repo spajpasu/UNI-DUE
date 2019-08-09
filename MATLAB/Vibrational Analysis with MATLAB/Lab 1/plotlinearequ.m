@@ -1,3 +1,14 @@
+%------------------------- Ajay Kumar Pasupuleti------------------------
+%--------------------------- Mtr. No. 3091942 -------------------------- 
+% We plot here the solutions of 3 Linear equations with 'r' varying from 
+% [-1,1], we then plot the values of solution x1,x2,x3 and determinant
+% vs r
+
+clear all; close all
+
+
+disp('----------------------- Ajay Kumar Pasupuleti--------------------')
+disp('------------------------ Mtr. No. 3091942 -----------------------')
 i = 1; % variable to add elements to solution matrix and seterminant matrix
 for r = -1:0.01:1
     % calling function to solve equation for value of r
@@ -28,4 +39,6 @@ hold on;
 % manipulating the matrix display
 axis([-1 1 -20 20]);
 legend({'x1', 'x2', 'x3', 'det'});
+title('Solution Plot ---Mtr. No. 3091942---')
+disp('The plots for solutions x1, x2, x3 and determinant have been plotted')
 clear i; clear r;
